@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <form [formGroup]="applyForm" (submit)="submitRegistrationForm()">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstName" formControlName="firstName">
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                  </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+                  </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 mb-3">
+                    <label for="employeeNumber" class="form-label">Employee Number</label>
+                    <input type="text" class="form-control" id="employeeNumber" formControlName="employeeNumber">
+                </div>
+                <div class="col-sm-6">
+                    <label for="" class="form-label">Role</label>
+                    <select class="form-select" aria-label="Default select example" formControlName="role">
+                        <option selected>Choose your current role</option>
+                        <option value="employee">Employee</option>
+                        <option value="ItManager">IT manager</option>
+                      </select>
+                </div>
+            </div>  
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <button type="submit" class="btn btn-primary col-sm-4">Submit</button>
+            </div>  
+            <!-- mettre le message d'erreur pour un refus d'inscription -->
+            <p></p>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <a routerLink="/login" class="col-sm-4">Se connecter</a>
+            </div>
+        </div>
+      </form>
+      </div>
