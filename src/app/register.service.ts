@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable, throwError, catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class RegisterService {
     email: string, 
     phoneNumber: string,
     employeeNumber: string,
-    role: string) {
+    ): Observable<any>{
 
       const registrationData = {
         firstName: firstName,
@@ -22,9 +23,24 @@ export class RegisterService {
         email: email,
         phoneNumber: phoneNumber,
         employeeNumber: employeeNumber,
-        role: role
+        
       }
       
-      return this.http.post<any>(this.url, registrationData);
+      return this.http.post<any>(this.url, registrationData)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  private handleError(error: any) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    return throwError(errorMessage);
   }
 }
