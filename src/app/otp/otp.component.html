@@ -7,16 +7,20 @@
               Verify OTP
             </div>
             
-            <form action="" class="mt-5">
-              <input class="otp" #firstDigit type="text" (input)="digitValidate(firstDigit)" (keyup)='tabChange(1)' maxlength=1 >
-              <input class="otp" #secondDigit type="text" (input)='digitValidate(secondDigit)' (keyup)='tabChange(2)' maxlength=1 >
-              <input class="otp" #thirdDigit type="text" (input)='digitValidate(thirdDigit)' (keyup)='tabChange(3)' maxlength=1 >
-              <input class="otp" #fourthDigit type="text" (input)='digitValidate(fourthDigit)' (keyup)='tabChange(4)' maxlength=1 >
-              <input class="otp" #fifthDigit type="text" (input)='digitValidate(fifthDigit)' (keyup)='tabChange(5)' maxlength=1 >
-              <input class="otp" #sixthDigit type="text" (input)='digitValidate(sixthDigit)' (keyup)='tabChange(6)' maxlength=1 >
+            <form [formGroup]="otpForm" class="mt-5" (submit)="submitOtpForm()">
+              <input class="otp" #firstDigit type="text" (input)="digitValidate(firstDigit)" (keyup)='tabChange(1)' maxlength=1 formControlName="first" required>
+              <input class="otp" #secondDigit type="text" (input)='digitValidate(secondDigit)' (keyup)='tabChange(2)' maxlength=1 formControlName="second" required>
+              <input class="otp" #thirdDigit type="text" (input)='digitValidate(thirdDigit)' (keyup)='tabChange(3)' maxlength=1 formControlName="third" required>
+              <input class="otp" #fourthDigit type="text" (input)='digitValidate(fourthDigit)' (keyup)='tabChange(4)' maxlength=1 formControlName="fourth" required>
+              <input class="otp" #fifthDigit type="text" (input)='digitValidate(fifthDigit)' (keyup)='tabChange(5)' maxlength=1 formControlName="fifth" required>
+              <input class="otp" #sixthDigit type="text" (input)='digitValidate(sixthDigit)' (keyup)='tabChange(6)' maxlength=1 formControlName="sixth" required>
+
+              <hr class="mt-4">
+              <button type="submit" class='btn btn-primary btn-block mt-4 mb-4 customBtn'>Verify</button>
             </form>
-            <hr class="mt-4">
-            <button class='btn btn-primary btn-block mt-4 mb-4 customBtn'>Verify</button>
+            <!-- gérer la validation au niveau du form-->
+            <!-- mettre un message pour retourner l'erreur rencontré-->
+            
           </div>
         </div>
       </div>

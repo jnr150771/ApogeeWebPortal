@@ -25,15 +25,11 @@ export class OtpComponent {
   
   tabChange(val: number): void{
       let ele = document.querySelectorAll('input');
-      if(ele[val-1].value != ''){
+      if(ele[val-1].value != '' && val<6){
         ele[val].focus()
-      }else if(ele[val-1].value == ''){
+      }else if(ele[val-1].value == '' && val>1){
         ele[val-2].focus()
       }   
-   }
-
-   print(): void {
-    console.log('bonjour')
    }
 
   constructor(
@@ -50,10 +46,9 @@ export class OtpComponent {
     sixth: new FormControl('')
   })
 
-  // écrire un try pour forcer l'utilisateur à entrer
-  // un nombre contenu entre 0 et 9 pour chaque case
 
   submitOtpForm() {
+    console.log('otp works')
     this.otpService
     .sendOtpCode(
       Number(this.otpForm.value.first) ?? 0,

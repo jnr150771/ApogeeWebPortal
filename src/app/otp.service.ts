@@ -25,6 +25,7 @@ export class OtpService {
         sixthDigit: sixth 
       }
 
+      console.log('otp work');
       return this.http.post<any>(this.url, otpCode)
       .pipe(
         catchError(this.handleError)
