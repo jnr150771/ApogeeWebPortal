@@ -61,7 +61,7 @@ export class OtpComponent {
     .subscribe(
       res => {
         console.log('HTTP response', res);
-        this.router.navigate(['/otp']);
+        this.router.navigate(['/change-password']);
       },
       err => this.errorMessage = err,
       () => console.log('HTTP request completed.')

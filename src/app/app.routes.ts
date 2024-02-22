@@ -3,6 +3,7 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
 import { OtpComponent } from './otp/otp.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 export const routes: Routes = [
     {
@@ -19,6 +20,11 @@ export const routes: Routes = [
         path:'otp',
         component: OtpComponent,
         title: 'OTP'
+    },
+    {
+        path: 'change-password',
+        component: ChangePasswordComponent,
+        title: 'Change Password'
     },
     {
         path: '', 
